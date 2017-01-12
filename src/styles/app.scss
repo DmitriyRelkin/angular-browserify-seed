@@ -2,7 +2,10 @@
 @import "imports";
 
 body {
-  .warapper-content {
+  .main-warapper {
+    .container {
+      margin: 60px 0 60px;
+    }
     text-align: center;
     color: #222;
     display: flex;

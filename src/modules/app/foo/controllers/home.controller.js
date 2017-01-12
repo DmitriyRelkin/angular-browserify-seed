@@ -8,9 +8,7 @@
 *
 **/
 module.exports =
-
 function homeCtrl ($scope, $http, $rootScope) {
-
   /**
 	 * @ngdoc property
 	 * @name vm
@@ -19,9 +17,20 @@ function homeCtrl ($scope, $http, $rootScope) {
 	 * vm is an instance of the current controller.
 	 */
   var vm = this;
-
+  /**
+  /**
+  * @ngdoc property
+  * @name vm.images
+  * @description
+  * An array that keeps images data.
+  **/
   vm.images = [];
-
+  /**
+  * @ngdoc function
+  * @name vm.imageLoader
+  * @description
+  * This function send request, and receive data with images
+  **/
   vm.imageLoader = function() {
     var promise = $http.get("http://jsonplaceholder.typicode.com/photos/");
     promise.then(function (response) {
