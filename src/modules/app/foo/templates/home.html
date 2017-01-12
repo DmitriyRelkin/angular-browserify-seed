@@ -1,5 +1,5 @@
-<div class="images" ng-init="vm.imageLoader()">
-  <div class="albom">
+<div class="album" ng-init="vm.imageLoader()">
+  <div class="images">
     <a href="#/image/{{img.id}}" ng-repeat="img in vm.images | limitTo : 30">
       <img  ng-src="{{vm.images[0 + $index].thumbnailUrl}}">
     </a>

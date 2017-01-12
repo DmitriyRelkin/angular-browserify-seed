@@ -1,0 +1,14 @@
+.album {
+  .images {
+    width: 470px;
+    margin: 0 auto;
+    @media all and (max-width: 768px) {
+      width: 280px !important;
+      margin: 0 auto;
+    }
+    @media all and (max-width: 992px) {
+      width: 420px;
+      margin: 0 auto;
+    }
+  }
+}
