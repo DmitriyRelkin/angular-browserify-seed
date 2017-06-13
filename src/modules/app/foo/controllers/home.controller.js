@@ -8,7 +8,7 @@
 *
 **/
 module.exports =
-function homeCtrl ($scope, $http, $rootScope) {
+function homeCtrl ($scope, loadImage, $rootScope) {
   /**
 	 * @ngdoc property
 	 * @name vm
@@ -17,6 +17,14 @@ function homeCtrl ($scope, $http, $rootScope) {
 	 * vm is an instance of the current controller.
 	 */
   var vm = this;
+  /**
+  /**
+  * @ngdoc property
+  * @name vm.imagesLimit
+  * @description
+  * Initial number of displayed images.
+  **/
+  vm.imagesLimit = 30;
   /**
   /**
   * @ngdoc property
@@ -32,10 +40,10 @@ function homeCtrl ($scope, $http, $rootScope) {
   * This function send request, and receive data with images
   **/
   vm.imageLoader = function() {
-    var promise = $http.get("http://jsonplaceholder.typicode.com/photos/");
-    promise.then(function (response) {
+    vm.promise = loadImage.all().then(function (response) {
       vm.images = response.data;
-    },function () {
+      return vm.images;
+    }).catch(function () {
       console.error('Error load images!!!');
     });
   };

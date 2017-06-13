@@ -9,7 +9,7 @@
 **/
 module.exports =
 
-function imageCtrl ($scope, $routeParams, $http) {
+function imageCtrl ($scope, $routeParams, loadImage) {
   /**
   * @ngdoc property
   * @name vm
@@ -34,11 +34,12 @@ function imageCtrl ($scope, $routeParams, $http) {
   **/
   vm.imageLoader = function() {
     var id = $routeParams.imageId;
-    var promise = $http.get("http://jsonplaceholder.typicode.com/photos/" + id);
-    promise.then(function (response) {
+    vm.promise = loadImage.current(id).then(function (response) {
       vm.image = response.data;
-    },function () {
-      console.error('Error load image!!!');
+      return vm.image;
+    }).catch(function () {
+      console.error('Error load images!!!');
     });
   };
+
 };
