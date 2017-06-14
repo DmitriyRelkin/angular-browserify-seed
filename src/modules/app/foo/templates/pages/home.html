@@ -2,6 +2,7 @@
   <div class="images" item-selector="image-item" promise="vm.promise" scroll-infinite limit="vm.imagesLimit">
     <a href="#/image/{{img.id}}" class="image-item" ng-repeat="img in vm.images | limitTo : vm.imagesLimit">
       <img  ng-src="{{vm.images[0 + $index].thumbnailUrl}}">
+      <p>{{vm.images[0 + $index].title}}</p>
     </a>
   </div>
 </div>

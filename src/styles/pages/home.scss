@@ -1,15 +1,33 @@
 .album {
   margin: 10px 0 10px;
   .images {
+    overflow: hidden;
     width: 470px;
     margin: 0 auto;
+    a {
+      display: block;
+      width: 150px;
+      float: left;
+      margin: 0 2px 0;
+      img {
+        cursor: pointer;
+        &:hover {
+          box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+        }
+      }
+      p {
+        font-size: 12px;
+        margin: 0;
+        height: 60px;
+        color: black;
+        font-weight: 100;
+      }
+    }
     @media all and (max-width: 768px) {
-      width: 280px !important;
-      margin: 0 auto;
+      width: 160px !important;
     }
     @media all and (max-width: 992px) {
-      width: 420px;
-      margin: 0 auto;
+      width: 310px;
     }
   }
 }
